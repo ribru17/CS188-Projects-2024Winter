@@ -24,7 +24,10 @@ date: 2024-03-21
 ## History
 Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
 
-## Main Content
+## UNet
+
+UNet is tailored for biomedical image segmentation. It has a significant amount of trainable parameters, which makes it perfect for complex use cases. The vanilla UNet model 
+
 
 ## Basic Syntax
 
@@ -48,4 +51,4 @@ Please make sure to cite properly in your work, for example:
 detection." _Proceedings of the IEEE conference on computer vision and pattern
 recognition_. 2016.
 
----
+--

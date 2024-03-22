@@ -24,12 +24,21 @@ date: 2024-03-21
 ## History
 Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
 
-## UNet
 
-UNet is tailored for biomedical image segmentation. It has a significant amount of trainable parameters, which makes it perfect for complex use cases. The vanilla UNet model 
+=======
+## Enter Deep Learning
+We can think of prostate segmentation as classifying voxels as either part or not part of a tumor. We then use prior training examples to understand how model boundaries of prostate in a "noisy advantage". This has a dual advantage of performing image classification and segmentation simultaneously, reducing overhead, leading to faster diagnoses. The lowered costs and increased speeds such methods provide also increases accessibility to prostate cancer detection methods in emerging economies where medical infrastructure is substandard. 
 
+## Models
+| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
+|------------|----------------------|--------------------------|--------------|------------------------------|------------------------------|
+| ENet       | 362,992              | 8,352                    | 5.8 MB       | 6.17 s                       | 1.07 s                       |
+| ERFNet     | 2,056,440            | 0                        | 25.3 MB      | 8.59 s                       | 1.03 s                       |
+| UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |
 
-## Basic Syntax
+## ENet
+>>>>>>> 4d4fe13cf90c501c1ee3145ba736a927bd48d454
+
 
 ### Image
 

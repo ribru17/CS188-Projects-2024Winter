@@ -20,6 +20,10 @@ date: 2024-03-21
 * TOC
 {:toc}
 
+
+## History
+Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
+
 ## Main Content
 
 ## Basic Syntax

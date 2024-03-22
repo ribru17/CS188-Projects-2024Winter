@@ -24,7 +24,8 @@ date: 2024-03-21
 ## History
 Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
 
-## Main Content
+## Enter Deep Learning
+We can think of prostate segmentation as classifying voxels as either part or not part of a tumor. We then use prior training examples to understand how model boundaries of prostate in a "noisy advantage". This has a dual advantage of performing image classification and segmentation simultaneously, reducing overhead, leading to faster diagnoses. The lowered costs and increased speeds such methods provide also increases accessibility to prostate cancer detection methods in emerging economies where medical infrastructure is substandard. 
 
 ## Basic Syntax
 

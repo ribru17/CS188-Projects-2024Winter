@@ -15,17 +15,10 @@ date: 2024-03-21
 > help with prostate image segmentation to catch early prostate cancer in
 > patients.
 
-# Table of Contents
-
-- [History](#history)
-- [Enter Deep Learning](#enter-deep-learning)
-- [Models](#models)
-  - [ENet](#enet)
-  - [ERFNet](#erfnet)
-  - [UNet](#unet)
-- [Comparing Models](#comparing-models)
-- [Conclusion](#conclusion)
-- [References](#references)
+<!--more-->
+{: class="table-of-content"}
+* TOC
+{:toc}
 
 
 
@@ -39,7 +32,7 @@ We can think of prostate segmentation as classifying voxels as either part or no
 
 ## Models
 | Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
-|------------|----------------------|--------------------------|--------------|------------------------------|------------------------------|
+|:---        |        :---:         |          :---:           |     :---:    |            :----:            |                          ---:|
 | ENet       | 362,992              | 8,352                    | 5.8 MB       | 6.17 s                       | 1.07 s                       |
 | ERFNet     | 2,056,440            | 0                        | 25.3 MB      | 8.59 s                       | 1.03 s                       |
 | UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |

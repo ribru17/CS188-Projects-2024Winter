@@ -2,8 +2,8 @@
 layout: post
 comments: true
 title: Deep Learning for Prostate Segmentation
-author: Pratosh Menon, Bulent Yasilyurt, Riley Bruins, Hayden D'Souza
-date: 2024-03-21
+author: Pratosh Menon, Bulent Yasilyurt, Hayden D'Souza, Riley Bruins
+date: 2024-03-22
 ---
 
 > We aim to analyze how we can use deep learning technique for prostate image
@@ -11,7 +11,7 @@ date: 2024-03-21
 > worldwide and the fifth leading cause of death for men globally. However, this
 > is a statistic that can be considerably changed with early stage detection. In
 > fact, the cancer is completely curable within 5 years if we catch it early. To
-> this end, we explore how we can use exsiting deep learning architectures to
+> this end, we explore how we can use existing deep learning architectures to
 > help with prostate image segmentation to catch early prostate cancer in
 > patients.
 
@@ -22,25 +22,53 @@ date: 2024-03-21
 
 ## History
 
+Classical approaches to 3d image generation of inner tissues and organs involved
+manual delineation/contouring which were incredibly time-consuming, expensive
+and had rigid calculations for irregular shapes which led to inaccurate
+measurements. Traditional statistical models such as K-Means, SVMs and Random
+Forest were just as inaccurate since they depended on handcrafted features and
+required significantly more preprocessing.
+
 ## Enter Deep Learning
 
-### Models
+We can think of prostate segmentation as classifying voxels as either part or
+not part of a tumor. We then use prior training examples to understand how model
+boundaries of prostate in a "noisy advantage". This has a dual advantage of
+performing image classification and segmentation simultaneously, reducing
+overhead, leading to faster diagnoses. The lowered costs and increased speeds
+such methods provide also increases accessibility to prostate cancer detection
+methods in emerging economies where medical infrastructure is substandard.
 
-- [ENet](#enet)
-- [ERFNet](#erfnet)
-- [UNet](#unet)
+## Models
 
-### Comparing Models
+| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
+| ---------- | -------------------- | ------------------------ | ------------ | ---------------------------- | ---------------------------- |
+| ENet       | 362,992              | 8,352                    | 5.8 MB       | 6.17 s                       | 1.07 s                       |
+| ERFNet     | 2,056,440            | 0                        | 25.3 MB      | 8.59 s                       | 1.03 s                       |
+| UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |
+
+### ENet
+
+### ERFNet
+
+### UNet
+
+<!-- deno-fmt-ignore-start -->
+![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+*Fig 1. UNET Architecture* [1].
+<!-- deno-fmt-ignore-end -->
 
 ## Conclusion
 
 ## References
 
+
 ## History
 Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
 
 
-=======
+
 ## Enter Deep Learning
 We can think of prostate segmentation as classifying voxels as either part or not part of a tumor. We then use prior training examples to understand how model boundaries of prostate in a "noisy advantage". This has a dual advantage of performing image classification and segmentation simultaneously, reducing overhead, leading to faster diagnoses. The lowered costs and increased speeds such methods provide also increases accessibility to prostate cancer detection methods in emerging economies where medical infrastructure is substandard. 
 
@@ -53,7 +81,7 @@ We can think of prostate segmentation as classifying voxels as either part or no
 | UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |
 
 ## ENet
->>>>>>> 4d4fe13cf90c501c1ee3145ba736a927bd48d454
+
 
 ## ERFNet
 
@@ -84,3 +112,12 @@ detection." _Proceedings of the IEEE conference on computer vision and pattern
 recognition_. 2016.
 
 --
+=======
+[1] Zhang, Jeremy. "UNet -- Line by Line Explanation"
+_https://towardsdatascience.com/unet-line-by-line-explanation-9b191c76baf5/_.
+2019.
+
+---
+
+<!-- vim: set spell: -->
+

@@ -15,18 +15,24 @@ date: 2024-03-21
 > help with prostate image segmentation to catch early prostate cancer in
 > patients.
 
-# Table of Contents
+* Table of Contents
+{:toc}
 
-- [History](#history)
-- [Enter Deep Learning](#enter-deep-learning)
-- [Models](#models)
+### History {#history}
+
+### Enter Deep Learning {#enter-deep-learning}
+
+### Models {#models}
+
   - [ENet](#enet)
   - [ERFNet](#erfnet)
   - [UNet](#unet)
-- [Comparing Models](#comparing-models)
-- [Conclusion](#conclusion)
-- [References](#references)
 
+### Comparing Models {#comparing-models}
+
+### Conclusion {#conclusion}
+
+### References {#references}
 
 
 ## History

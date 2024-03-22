@@ -15,25 +15,26 @@ date: 2024-03-21
 > help with prostate image segmentation to catch early prostate cancer in
 > patients.
 
-Table of Contents
+<!--more-->
+{: class="table-of-content"}
+* TOC
 {:toc}
 
-### History {#history}
+## History
 
-### Enter Deep Learning {#enter-deep-learning}
+## Enter Deep Learning
 
-### Models {#models}
+### Models
 
-  - [ENet](#enet)
-  - [ERFNet](#erfnet)
-  - [UNet](#unet)
+- [ENet](#enet)
+- [ERFNet](#erfnet)
+- [UNet](#unet)
 
-### Comparing Models {#comparing-models}
+### Comparing Models
 
-### Conclusion {#conclusion}
+## Conclusion
 
-### References {#references}
-
+## References
 
 ## History
 Classical approaches to 3d image generation of inner tissues and organs involved manual delienation/contouring which were incredibly time-consuming, expensive and had rigid calculations for irregular shapes which led to inaccurate measurements. Traditional statistical models such as K-Means, SVMs and Random Forest were just as inaccurate since they depended on handcrafted features and required significantly more preprocessing.  
@@ -42,6 +43,7 @@ Classical approaches to 3d image generation of inner tissues and organs involved
 We can think of prostate segmentation as classifying voxels as either part or not part of a tumor. We then use prior training examples to understand how model boundaries of prostate in a "noisy advantage". This has a dual advantage of performing image classification and segmentation simultaneously, reducing overhead, leading to faster diagnoses. The lowered costs and increased speeds such methods provide also increases accessibility to prostate cancer detection methods in emerging economies where medical infrastructure is substandard. 
 
 ## Models
+
 | Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
 |------------|----------------------|--------------------------|--------------|------------------------------|------------------------------|
 | ENet       | 362,992              | 8,352                    | 5.8 MB       | 6.17 s                       | 1.07 s                       |

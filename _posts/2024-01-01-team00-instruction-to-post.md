@@ -34,6 +34,8 @@ We can think of prostate segmentation as classifying voxels as either part or no
 | ERFNet     | 2,056,440            | 0                        | 25.3 MB      | 8.59 s                       | 1.03 s                       |
 | UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |
 
+## ENet
+
 
 ### Image
 

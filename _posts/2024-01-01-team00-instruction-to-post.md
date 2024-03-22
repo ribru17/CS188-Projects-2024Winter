@@ -33,10 +33,12 @@ from Lilian Weng and you can find the source code
 Please create a folder with the name of your team id under /assets/images/, put
 all your images into the folder and reference the images in your main content.
 
-You can add an image to your survey like this: ![YOLO]({{
-'/assets/images/UCLAdeepvision/object_detection.png' | relative_url }}) {:
-style="width: 400px; max-width: 100%;"} _Fig 1. YOLO: An object detection method
-in computer vision_ [1].
+<!-- deno-fmt-ignore-start -->
+You can add an image to your survey like this:
+![YOLO]({{ '/assets/images/UCLAdeepvision/object_detection.png' | relative_url }})
+{: style="width: 400px; max-width: 100%;"}
+*Fig 1. YOLO: An object detection method in computer vision* [1].
+<!-- deno-fmt-ignore-end -->
 
 Please cite the image if it is taken from other people's work.
 

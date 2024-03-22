@@ -2,18 +2,23 @@
 layout: post
 comments: true
 title: Deep Learning for Prostate Segmentation
-author: UCLAdeepvision
-date: 2024-01-01
+author: Pratosh Menon, Bulent Yasilyurt, Riley Bruins, Hayden D'Souza
+date: 2024-03-21
 ---
 
-> We aim to analyze how we can use deep learning technique for prostate image segmentation. Prostate cancer is the second most common form of cancer for men worldwide and the fifth leading cause of death for men globally. However, this is a statistic that can be considerably changed with early stage detection. In fact, the cancer is completely curable within 5 years if we catch it early. To this end, we explore how we can use exsiting deep learning architectures to help with prostate image segmentation to catch early prostate cancer in patients. 
+> We aim to analyze how we can use deep learning technique for prostate image
+> segmentation. Prostate cancer is the second most common form of cancer for men
+> worldwide and the fifth leading cause of death for men globally. However, this
+> is a statistic that can be considerably changed with early stage detection. In
+> fact, the cancer is completely curable within 5 years if we catch it early. To
+> this end, we explore how we can use exsiting deep learning architectures to
+> help with prostate image segmentation to catch early prostate cancer in
+> patients.
 
-<!-- deno-fmt-ignore-start -->
 <!--more-->
 {: class="table-of-content"}
 * TOC
 {:toc}
-<!-- deno-fmt-ignore-end -->
 
 ## Main Content
 

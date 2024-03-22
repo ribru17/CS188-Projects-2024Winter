@@ -15,7 +15,7 @@ date: 2024-03-21
 > help with prostate image segmentation to catch early prostate cancer in
 > patients.
 
-* Table of Contents
+Table of Contents
 {:toc}
 
 ### History {#history}

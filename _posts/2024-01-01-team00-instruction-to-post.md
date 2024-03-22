@@ -47,6 +47,13 @@ We can think of prostate segmentation as classifying voxels as either part or no
 ## ENet
 >>>>>>> 4d4fe13cf90c501c1ee3145ba736a927bd48d454
 
+## ERFNet
+
+## UNet
+
+## Comparing Models
+
+## Conclusion 
 
 ### Image
 

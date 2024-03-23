@@ -142,33 +142,42 @@ Distinct features of UNet:
 *Fig 2. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
+
 ## Model Comparison
-ENet and UNet are both widely used architectures for image segmentation, each with 
-its own strengths and characteristics. ENet, known for its efficiency and lightweight 
-design, features a simple encoder-decoder structure with skip connections, making it 
-suitable for real-time applications on resource-constrained devices. In contrast, 
-UNet is a more complex architecture specifically designed to capture both local and 
-global features effectively, particularly in biomedical image segmentation tasks like 
-prostate segmentation.
 
-When comparing the two models, ENet typically has fewer trainable parameters and a smaller 
-size on disk compared to UNet, indicating a simpler architecture that requires less
-storage space. Furthermore, ENet demonstrates significantly lower inference times on both 
-CPU  and GPU, making it highly efficient for processing images in real-time scenarios. 
-These advantages make ENet an attractive option for tasks where computational efficiency 
-is paramount.
+ENet and UNet are both widely used architectures for image segmentation, each
+with its own strengths and characteristics. ENet, known for its efficiency and
+lightweight design, features a simple encoder-decoder structure with skip
+connections, making it suitable for real-time applications on
+resource-constrained devices. In contrast, UNet is a more complex architecture
+specifically designed to capture both local and global features effectively,
+particularly in biomedical image segmentation tasks like prostate segmentation.
 
-However, for prostate image segmentation, where precise delineation of structures is crucial,
-UNet may be preferred despite its higher computational cost. UNet's deeper layers and skip 
-connections enable it to capture fine details and contextual information more effectively, 
-leading to better segmentation accuracy. In tasks like medical image segmentation, where 
-accuracy is paramount, the improved performance of UNet outweighs its higher computational 
-demands.
+When comparing the two models, ENet typically has fewer trainable parameters and
+a smaller size on disk compared to UNet, indicating a simpler architecture that
+requires less storage space. Furthermore, ENet demonstrates significantly lower
+inference times on both CPU and GPU, making it highly efficient for processing
+images in real-time scenarios. These advantages make ENet an attractive option
+for tasks where computational efficiency is paramount.
 
-In summary, while ENet offers superior efficiency and speed, UNet's architecture is better 
-suited for complex segmentation tasks like prostate image segmentation, where achieving 
-high accuracy and detail preservation is essential, even at the cost of increased 
-computational resources.
+However, for prostate image segmentation, where precise delineation of
+structures is crucial, UNet may be preferred despite its higher computational
+cost. UNet's deeper layers and skip connections enable it to capture fine
+details and contextual information more effectively, leading to better
+segmentation accuracy. In tasks like medical image segmentation, where accuracy
+is paramount, the improved performance of UNet outweighs its higher
+computational demands.
+
+<!-- deno-fmt-ignore-start -->
+![Segmentation Comparison]({{ '/assets/images/20/segmentation.png' | relative_url }})
+{: style="width: 800px; max-width: 100%; display: block;"}
+_Fig 3. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
+<!-- deno-fmt-ignore-end -->
+
+In summary, while ENet offers superior efficiency and speed, UNet's architecture
+is better suited for complex segmentation tasks like prostate image
+segmentation, where achieving high accuracy and detail preservation is
+essential, even at the cost of increased computational resources.
 
 ## Conclusion
 

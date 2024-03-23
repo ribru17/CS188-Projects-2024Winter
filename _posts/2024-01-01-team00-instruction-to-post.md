@@ -123,6 +123,7 @@ Distinct features of UNet:
 <!-- deno-fmt-ignore-end -->
 
 ### Conclusion
+We believe UNet is the best model for prostate segmentation. While it might carry an overhead in processing times and a much larger GPU footprint making it significantly more expensive to train and deploy, we believe the fact that it has a significantly higher number of trainable parameters make it perfect for complex use cases, which are critical in detecting early stage prostate cancer. This also means that the number of false positive disease diagnosis will fall significantly along with the far more dangerous false negatives. 
 
 ## References
 

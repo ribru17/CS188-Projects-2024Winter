@@ -41,22 +41,17 @@ methods in emerging economies where medical infrastructure is substandard.
 
 ## Models
 
-| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
-| :--------- | :------------------: | :----------------------: | :----------: | :--------------------------: | ---------------------------: |
-| ENet       |       362,992        |          8,352           |    5.8 MB    |            6.17 s            |                       1.07 s |
-| UNet       |      5,403,874       |            0             |   65.0 MB    |           42.02 s            |                       1.57 s |
-
 ### ENet
 
-ENet is a fast and compact Encoder-Decoder network. The vanilla ENet assumes an
-input size of $$512 \times 512$$. The initial ENet block has a convolution
-operation ($$3 \times 3$$, stride 2), max pooling, then a concatenation. The
-convolution has 13 filters, which produces 16 feature maps after concatenation.
-Then comes the bottleneck module. Here, convolution is either regular, dilated
-or full with $$3 \times 3$$ filters, or a $$5\times5$$ convolution into
-asymmetric ones. Then using a skip connection, merge back with element-wise
-addition. There is also Batch Normalization and PReLU between all convolutions.
-The below Figure 1 highlights the overall model architecture.
+ENet is a fast and compact Encoder-Decoder network. The vanilla ENet model
+assumes an input size of $$512 \times 512$$. The initial ENet block has a
+convolution operation ($$3 \times 3$$, stride 2), max pooling, then a
+concatenation. The convolution has 13 filters, which produces 16 feature maps
+after concatenation. Then comes the bottleneck module. Here, convolution is
+either regular, dilated or full with $$3 \times 3$$ filters, or a $$5\times5$$
+convolution into asymmetric ones. Then using a skip connection, merge back with
+element-wise addition. There is also Batch Normalization and PReLU between all
+convolutions. The below Figure 1 highlights the overall model architecture.
 
 <!-- deno-fmt-ignore-start -->
 ![ENet]({{ '/assets/images/20/ENetArchitecture.png' | relative_url }})
@@ -104,6 +99,18 @@ _Fig 1.ENet: An object Segmentation Method_ [2].
    paper, spacial dropout showed the best results in order to prevent
    overfitting of the pixel-wise datasets, which tend to be quite small [2].
 
+ENet's main advantage is its speed. It can achieve surprisingly high accuracy
+while using computational resources very sparingly and working very quickly.
+This is why it was initially developed for real-time applications, such as self
+driving cars. It was later adapted to other uses, such as medical image
+segmentation, which is of use to us when detecting prostate cancer.
+
+<!-- deno-fmt-ignore-start -->
+![Self driving car]({{ '/assets/images/20/car.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+*Fig 2. A self-driving car that could perhaps be making use of ENet.*
+<!-- deno-fmt-ignore-end -->
+
 ### UNet
 
 UNet was developed specifically for biological image segmentation. Now, UNet's
@@ -139,7 +146,25 @@ Distinct features of UNet:
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})
 {: style="width: 900px; max-width: 100%;"}
-*Fig 2. UNET Architecture* [1].
+*Fig 3. UNET Architecture* [1].
+<!-- deno-fmt-ignore-end -->
+
+#### Training Methodology
+
+UNet features 5-fold cross validation to prevent overfitting (68 in train set,
+17 in test). It uses the Tversky loss function, which features an adapted
+version of the Dice Score Coefficient (DSC) to account for various data
+imbalance. In the original paper, experiments found that 0.00001 was the most
+optimal learning rate while the constants $$\alpha = 0.3$$, $$\beta = 0.7$$, $$N
+= 8$$ were used for Tversky Loss.
+
+<!-- deno-fmt-ignore-start -->
+![TI Equation]({{ '/assets/images/20/ti_math.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+
+![TI Equation]({{ '/assets/images/20/t_loss_math.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+*Fig 4. Mathematical equations used in the loss function.*
 <!-- deno-fmt-ignore-end -->
 
 
@@ -160,6 +185,11 @@ inference times on both CPU and GPU, making it highly efficient for processing
 images in real-time scenarios. These advantages make ENet an attractive option
 for tasks where computational efficiency is paramount.
 
+| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
+| :--------- | :------------------: | :----------------------: | :----------: | :--------------------------: | ---------------------------: |
+| ENet       |       362,992        |          8,352           |    5.8 MB    |            6.17 s            |                       1.07 s |
+| UNet       |      5,403,874       |            0             |   65.0 MB    |           42.02 s            |                       1.57 s |
+
 However, for prostate image segmentation, where precise delineation of
 structures is crucial, UNet may be preferred despite its higher computational
 cost. UNet's deeper layers and skip connections enable it to capture fine
@@ -171,7 +201,13 @@ computational demands.
 <!-- deno-fmt-ignore-start -->
 ![Segmentation Comparison]({{ '/assets/images/20/segmentation.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
-_Fig 3. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
+_Fig 5. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
+<!-- deno-fmt-ignore-end -->
+
+<!-- deno-fmt-ignore-start -->
+![Deep Learning Model Comparison]({{ '/assets/images/20/detailed_comparison.png' | relative_url }})
+{: style="width: 800px; max-width: 100%; display: block;"}
+_Fig 6. A more detailed model comparison_. [4]
 <!-- deno-fmt-ignore-end -->
 
 In summary, while ENet offers superior efficiency and speed, UNet's architecture

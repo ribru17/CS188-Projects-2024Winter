@@ -205,7 +205,7 @@ _Fig 5. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
 <!-- deno-fmt-ignore-end -->
 
 <!-- deno-fmt-ignore-start -->
-![Deep Learning Model Comparison]({{ '/assets/images/20/detailed_comparison.png' | relative_url }})
+![Deep Learning Model Comparison]({{ '/assets/images/20/SegmentationMetrics.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
 _Fig 6. A more detailed model comparison_. [4]
 <!-- deno-fmt-ignore-end -->

@@ -87,7 +87,7 @@ _Fig 1. ENet: An object Segmentation Method_ [2].
 
 ### UNet
 
-UNet was developed specifically for biological image segmentation. Now, U-Net's
+UNet was developed specifically for biological image segmentation. Now, UNet's
 architecture is distinctive with distinct dual pathways: the contracting and
 expansive paths. The contracting path, comprising encoder layers, captures
 context and diminishes input spatial resolution. Conversely, the expansive path,
@@ -123,8 +123,15 @@ Distinct features of UNet:
 *Fig 2. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
-### Conclusion
-We believe UNet is the best model for prostate segmentation. While it might carry an overhead in processing times and a much larger GPU footprint making it significantly more expensive to train and deploy, we believe the fact that it has a significantly higher number of trainable parameters make it perfect for complex use cases, which are critical in detecting early stage prostate cancer. This also means that the number of false positive disease diagnosis will fall significantly along with the far more dangerous false negatives. 
+## Conclusion
+
+We believe UNet is the best model for prostate segmentation. While it might
+carry an overhead in processing times and a much larger GPU footprint making it
+significantly more expensive to train and deploy, we believe the fact that it
+has a significantly higher number of trainable parameters make it perfect for
+complex use cases, which are critical in detecting early stage prostate cancer.
+This also means that the number of false positive disease diagnosis will fall
+significantly along with the far more dangerous false negatives.
 
 ## References
 
@@ -139,6 +146,10 @@ arXiv:1606.02147.
 [3] “Key Statistics for Prostate Cancer | Prostate Cancer Facts.” _American
 Cancer Society_,
 www.cancer.org/cancer/types/prostate-cancer/about/key-statistics.html#:~:text=About%201%20in%208%20men.
+
+[4] Comelli, Albert, et al. “Deep Learning-Based Methods for Prostate
+Segmentation in Magnetic Resonance Imaging.” _Applied Sciences_, vol. 11, no. 2,
+15 Jan. 2021, p. 782, https://doi.org/10.3390/app11020782.
 
 ---
 

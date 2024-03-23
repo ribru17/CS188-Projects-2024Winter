@@ -17,6 +17,7 @@ date: 2024-03-22
 
 <!--more-->
 {: class="table-of-content"}
+- TOC
 {:toc}
 
 ## History
@@ -40,31 +41,39 @@ methods in emerging economies where medical infrastructure is substandard.
 
 ## Models
 
-
 | Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
-|:---        |        :---:         |          :---:           |     :---:    |            :----:            |                          ---:|
-| ENet       | 362,992              | 8,352                    | 5.8 MB       | 6.17 s                       | 1.07 s                       |
-| UNet       | 5,403,874            | 0                        | 65.0 MB      | 42.02 s                      | 1.57 s                       |
-
+| :--------- | :------------------: | :----------------------: | :----------: | :--------------------------: | ---------------------------: |
+| ENet       |       362,992        |          8,352           |    5.8 MB    |            6.17 s            |                       1.07 s |
+| UNet       |      5,403,874       |            0             |   65.0 MB    |           42.02 s            |                       1.57 s |
 
 ### ENet
-ENet is a fast and compact Encoder-Decoder network. The vanilla ENet assumes an input size of $$512 \times 512$$. The initial ENet block has a convolution operation ($$3 \times 3$$, stride 2), maxpooling, then a concatenation. The convolution has 13 filters, which produces 16 feature maps after concatenation. Then comes the bottleneck module. Here, convolution is either regular, dilated or full with $$3 \times 3$$
-filters, or a $$5\times5$$ convolution into asymetric ones. Then using a skip connection, merge back with element-wise addition. There is also Batch Normalization and PReLU between all convolutions.
+
+ENet is a fast and compact Encoder-Decoder network. The vanilla ENet assumes an
+input size of $$512 \times 512$$. The initial ENet block has a convolution
+operation ($$3 \times 3$$, stride 2), max pooling, then a concatenation. The
+convolution has 13 filters, which produces 16 feature maps after concatenation.
+Then comes the bottleneck module. Here, convolution is either regular, dilated
+or full with $$3 \times 3$$ filters, or a $$5\times5$$ convolution into
+asymmetric ones. Then using a skip connection, merge back with element-wise
+addition. There is also Batch Normalization and PReLU between all convolutions.
 The below Figure 1 highlights the overall model architecture.
 
-<!-- ignore -->
-![ENet]({{ '/assets/images/team20/ENetArchitecture.png' | relative_url }})
+<!-- deno-fmt-ignore-start -->
+![ENet]({{ '/assets/images/20/ENetArchitecture.png' | relative_url }})
 {: style="width: 400px; max-width: 100%; display: block;"}
-*Fig 1.ENet: An object Segmentation Method* [2].
-<!-- end-->
+_Fig 1.ENet: An object Segmentation Method_ [2].
+<!-- deno-fmt-ignore-end -->
 
-ENet was designed with the following significant design choices in mind:
 
 1. **Feature Map Resolution**: There are two main issues with downsampling during image segmentation. Reducing image resolution means the loss of exact edges and very strong downsampling will require just as strong upsampling, which is costly and inefficient. ENet addresses these concerns by adding the feature maps produced by the encoder and saving the indices that were chosen in max pooling layers to be later formed as upsampled maps in the decoder.
 
 2. **Early Downsampling**: Processing large input frames is very expensive, and this occurs mainly at the lower blocks of the model. ENet's first two blocks heavily reduce the input size and use a small amount of feature maps. This works since visual information is normally very redundant, so compressing it makes operations much more efficient. 
 
-3. 
+3. **Dilated Convolutions**: It is very important for the model to have a wide receptive field, so to avoid overly downsampling, dilated convolutions replace the main convolutions inside the bottlenecks. They did this for the stages that operate on the smallest resolutions. The best accuracy was obtained when these convolutions were combined with other bottleneck modules.
+
+4. **Regularization**: 
+
+
 ### UNet
 
 <!-- deno-fmt-ignore-start -->
@@ -73,25 +82,19 @@ ENet was designed with the following significant design choices in mind:
 *Fig 1. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
-### Comparing Models
+### Conclusion
 
-### Conclusion 
+## References
 
-## Reference
 
-Please make sure to cite properly in your work, for example:
-
-[1] Redmon, Joseph, et al. "You only look once: Unified, real-time object
-detection." _Proceedings of the IEEE conference on computer vision and pattern
-recognition_. 2016.
-
---
-=======
 [1] Zhang, Jeremy. "UNet -- Line by Line Explanation"
 _https://towardsdatascience.com/unet-line-by-line-explanation-9b191c76baf5/_.
 2019.
 
+[2] Paszke A; Chaurasia A; Kim S; Culurciello E. "ENet: A Deep Neural Network Architecture for
+Real-Time Semantic Segmentation." arXiv 2016, arXiv:1606.02147.
+
 ---
 
-
+<!-- vim: set spell: -->
 

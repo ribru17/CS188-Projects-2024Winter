@@ -8,7 +8,7 @@ date: 2024-03-22
 
 > We aim to analyze how we can use deep learning technique for prostate image
 > segmentation. Prostate cancer is the second most common form of cancer for men
-> worldwide and the fifth leading cause of death for men globally. However, this
+> worldwide and the fifth leading cause of death for men globally [3]. However, this
 > is a statistic that can be considerably changed with early stage detection. In
 > fact, the cancer is completely curable within 5 years if we catch it early. To
 > this end, we explore how we can use existing deep learning architectures to
@@ -126,13 +126,17 @@ Distinct features of UNet:
 
 ## References
 
-[1] Zhang, Jeremy. "UNet -- Line by Line Explanation"
-_https://towardsdatascience.com/unet-line-by-line-explanation-9b191c76baf5/_.
+[1] Zhang, Jeremy. "UNet -- Line by Line Explanation." _Towards Data Science_,
+https://towardsdatascience.com/unet-line-by-line-explanation-9b191c76baf5/.
 2019.
 
 [2] Paszke A; Chaurasia A; Kim S; Culurciello E. "ENet: A Deep Neural Network
 Architecture for Real-Time Semantic Segmentation." _arXiv_ 2016,
 arXiv:1606.02147.
+
+[3] “Key Statistics for Prostate Cancer | Prostate Cancer Facts.” _American
+Cancer Society_,
+www.cancer.org/cancer/types/prostate-cancer/about/key-statistics.html#:~:text=About%201%20in%208%20men.
 
 ---
 

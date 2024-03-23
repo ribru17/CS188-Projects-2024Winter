@@ -71,7 +71,9 @@ _Fig 1.ENet: An object Segmentation Method_ [2].
 
 3. **Dilated Convolutions**: It is very important for the model to have a wide receptive field, so to avoid overly downsampling, dilated convolutions replace the main convolutions inside the bottlenecks. They did this for the stages that operate on the smallest resolutions. The best accuracy was obtained when these convolutions were combined with other bottleneck modules.
 
-4. **Regularization**: 
+4. **Regularization**: Since most pixel-wise segmentation datasets are relatively small, expressive neural networks begin to overfit them. ENet uses Spatial Dropout at the end of convolutional branches (dropping whole branches) to combat this issue. In this case either all of a channel is ignored, or none. This turned out to work much better than the original stochastic depth approach.
+
+Overall, ENet provides a way to perform large-scale computations much faster and more efficiently than other baseline models. Our Model Comparison observes the performance specs when it comes to the specific task of Prostate image segmentation. 
 
 
 ### UNet

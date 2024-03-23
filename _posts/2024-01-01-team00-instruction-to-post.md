@@ -41,11 +41,6 @@ methods in emerging economies where medical infrastructure is substandard.
 
 ## Models
 
-| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
-| :--------- | :------------------: | :----------------------: | :----------: | :--------------------------: | ---------------------------: |
-| ENet       |       362,992        |          8,352           |    5.8 MB    |            6.17 s            |                       1.07 s |
-| UNet       |      5,403,874       |            0             |   65.0 MB    |           42.02 s            |                       1.57 s |
-
 ### ENet
 
 ENet is a fast and compact Encoder-Decoder network. The vanilla ENet assumes an
@@ -156,6 +151,11 @@ requires less storage space. Furthermore, ENet demonstrates significantly lower
 inference times on both CPU and GPU, making it highly efficient for processing
 images in real-time scenarios. These advantages make ENet an attractive option
 for tasks where computational efficiency is paramount.
+
+| Model Name | Trainable Parameters | Non-Trainable Parameters | Size on Disk | Inference Time/Dataset (CPU) | Inference Time/Dataset (GPU) |
+| :--------- | :------------------: | :----------------------: | :----------: | :--------------------------: | ---------------------------: |
+| ENet       |       362,992        |          8,352           |    5.8 MB    |            6.17 s            |                       1.07 s |
+| UNet       |      5,403,874       |            0             |   65.0 MB    |           42.02 s            |                       1.57 s |
 
 However, for prostate image segmentation, where precise delineation of
 structures is crucial, UNet may be preferred despite its higher computational

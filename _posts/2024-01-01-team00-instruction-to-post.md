@@ -84,21 +84,23 @@ _Fig 1. ENet: An object Segmentation Method_ [2].
    obtained when these convolutions were combined with other bottleneck modules.
 
 4. **Regularization**: Regularization techniques are vital for enhancing the
-   performance and generalization capability of U-Net, a neural network
+   performance and generalization capability of UNet, a neural network
    architecture widely used for tasks like image segmentation. Dropout, which
    randomly deactivates units during training, can be applied to convolutional
-   layers in both the contracting and expansive paths to discourage over-reliance
-   on specific features. Weight    decay, or L2 regularization, penalizes large
-   weights in the network's parameters, promoting simpler models and preventing
-   overfitting. Data augmentation, involving transformations like rotation and
-   flipping, diversifies the training data, aiding in better generalization.
-   Batch normalization normalizes layer activations, accelerating training and
-   acting as a form of regularization by reducing internal covariate shift.
-   Finally, early stopping halts training when validation loss starts increasing,
-   preventing overfitting and encouraging the model to learn more generalizable
-   patterns. These techniques, either individually or combined, play a crucial
-   role in optimizing the performance and robustness of U-Net models for
-   various applications.
+   layers in both the contracting and expansive paths to discourage
+   over-reliance on specific features. Weight decay, or L2 regularization,
+   penalizes large weights in the network's parameters, promoting simpler models
+   and preventing overfitting. Data augmentation, involving transformations like
+   rotation and flipping, diversifies the training data, aiding in better
+   generalization. Batch normalization normalizes layer activations,
+   accelerating training and acting as a form of regularization by reducing
+   internal covariate shift. Finally, early stopping halts training when
+   validation loss starts increasing, preventing overfitting and encouraging the
+   model to learn more generalizable patterns. These techniques, either
+   individually or combined, play a crucial role in optimizing the performance
+   and robustness of UNet models for various applications. In the original ENet
+   paper, spacial dropout showed the best results in order to prevent
+   overfitting of the pixel-wise datasets, which tend to be quite small [2].
 
 ### UNet
 

@@ -147,6 +147,24 @@ Distinct features of UNet:
 *Fig 3. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
+#### Training Methodology
+
+UNet features 5-fold cross validation to prevent overfitting (68 in train set,
+17 in test). It uses the Tversky loss function, which features an adapted
+version of the Dice Score Coefficient (DSC) to account for various data
+imbalance. In the original paper, experiments found that 0.00001 was the most
+optimal learning rate while the constants $$\alpha = 0.3$$, $$\beta = 0.7$$, $$N
+= 8$$ were used for Tversky Loss.
+
+<!-- deno-fmt-ignore-start -->
+![TI Equation]({{ '/assets/images/20/ti_math.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+
+![TI Equation]({{ '/assets/images/20/t_loss_math.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+*Fig 4. Mathematical equations used in the loss function.*
+<!-- deno-fmt-ignore-end -->
+
 ### Comparison
 
 ENet and UNet are both widely used architectures for image segmentation, each
@@ -180,13 +198,13 @@ computational demands.
 <!-- deno-fmt-ignore-start -->
 ![Segmentation Comparison]({{ '/assets/images/20/segmentation.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
-_Fig 4. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
+_Fig 5. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
 <!-- deno-fmt-ignore-end -->
 
 <!-- deno-fmt-ignore-start -->
 ![Deep Learning Model Comparison]({{ '/assets/images/20/detailed_comparison.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
-_Fig 5. A more detailed model comparison_. [4]
+_Fig 6. A more detailed model comparison_. [4]
 <!-- deno-fmt-ignore-end -->
 
 In summary, while ENet offers superior efficiency and speed, UNet's architecture

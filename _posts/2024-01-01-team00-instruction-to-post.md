@@ -8,12 +8,12 @@ date: 2024-03-22
 
 > We aim to analyze how we can use deep learning technique for prostate image
 > segmentation. Prostate cancer is the second most common form of cancer for men
-> worldwide and the fifth leading cause of death for men globally [3]. However, this
-> is a statistic that can be considerably changed with early stage detection. In
-> fact, the cancer is completely curable within 5 years if we catch it early. To
-> this end, we explore how we can use existing deep learning architectures to
-> help with prostate image segmentation to catch early prostate cancer in
-> patients.
+> worldwide and the fifth leading cause of death for men globally [3]. However,
+> this is a statistic that can be considerably changed with early stage
+> detection. In fact, the cancer is completely curable within 5 years if we
+> catch it early. To this end, we explore how we can use existing deep learning
+> architectures to help with prostate image segmentation to catch early prostate
+> cancer in patients.
 
 <!--more-->
 {: class="table-of-content"}
@@ -105,16 +105,17 @@ localization.
 
 Distinct features of UNet:
 
-1. 3 x 3 convolutions -> 5 x 5 convolutions: consider more info. in each step
+1. $$3 \times 3$$ convolutions -> $$5 \times 5$$ convolutions: consider more
+   information in each step
 2. 0 padding the input: ensure size of output feature maps = size of input
-3. Input size of 512 x 512
+3. Input size of $$512 \times 512$$
 4. 32 filters in first layer of encoder -> produces 32 feature maps:
    fine-grained details in image captured from beginning
 5. Doubled the feature maps after each max pooling layer, which halves
    dimensions of the map itself, clamping at 256 feature maps (each feature map
-   has dimensions of 64 x 64 here): focus on most prominent/distinct features
-   and capture more abstract representation Normalization of the scale of data
-   to prevent large weights: prevents overfitting + faster convergence
+   has dimensions of $$64 \times 64$$ here): focus on most prominent/distinct
+   features and capture more abstract representation Normalization of the scale
+   of data to prevent large weights: prevents overfitting + faster convergence
 
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})

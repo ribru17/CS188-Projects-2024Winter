@@ -79,6 +79,15 @@ UNet was developed specifically for biological image segmentation. Now, U-Net's 
 
 In the contracting path, relevant features are discerned from the input image. Encoder layers execute convolutions, reducing spatial resolution while deepening feature maps to abstract representations. This process mirrors feedforward layers in conventional CNNs. Conversely, the expansive path decodes encoded data, retaining input spatial resolution. Decoder layers upsample feature maps and perform convolutions, aided by skip connections to restore spatial information lost during contraction, facilitating more precise feature localization.
 
+Distinct features of UNet:
+1. 3 x 3 convolutions -> 5 x 5 convolutions: consider more info. in each step
+2. 0 padding the input: ensure size of output feature maps = size of input
+3. Input size of 512 x 512
+4. 32 filters in first layer of encoder -> produces 32 feature maps: fine-grained details in image captured from beginning
+5. Doubled the feature maps after each max pooling layer, which halves dimensions of the map itself, clamping at 256 feature maps (each feature map has dimensions    of 64 x 64 here): focus on most prominent/distinct features and capture more abstract representation
+   Normalization of the scale of data to prevent large weights: prevents overfitting + faster convergence
+
+
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})
 {: style="width: 900px; max-width: 100%;"}

@@ -61,52 +61,79 @@ The below Figure 1 highlights the overall model architecture.
 <!-- deno-fmt-ignore-start -->
 ![ENet]({{ '/assets/images/20/ENetArchitecture.png' | relative_url }})
 {: style="width: 400px; max-width: 100%; display: block;"}
-_Fig 1.ENet: An object Segmentation Method_ [2].
+_Fig 1. ENet: An object Segmentation Method_ [2].
 <!-- deno-fmt-ignore-end -->
 
+1. **Feature Map Resolution**: There are two main issues with downsampling
+   during image segmentation. Reducing image resolution means the loss of exact
+   edges and very strong downsampling will require just as strong upsampling,
+   which is costly and inefficient. ENet addresses these concerns by adding the
+   feature maps produced by the encoder and saving the indices that were chosen
+   in max pooling layers to be later formed as upsampled maps in the decoder.
 
-1. **Feature Map Resolution**: There are two main issues with downsampling during image segmentation. Reducing image resolution means the loss of exact edges and very strong downsampling will require just as strong upsampling, which is costly and inefficient. ENet addresses these concerns by adding the feature maps produced by the encoder and saving the indices that were chosen in max pooling layers to be later formed as upsampled maps in the decoder.
+2. **Early Downsampling**: Processing large input frames is very expensive, and
+   this occurs mainly at the lower blocks of the model. ENet's first two blocks
+   heavily reduce the input size and use a small amount of feature maps. This
+   works since visual information is normally very redundant, so compressing it
+   makes operations much more efficient.
 
-2. **Early Downsampling**: Processing large input frames is very expensive, and this occurs mainly at the lower blocks of the model. ENet's first two blocks heavily reduce the input size and use a small amount of feature maps. This works since visual information is normally very redundant, so compressing it makes operations much more efficient. 
+3. **Dilated Convolutions**: It is very important for the model to have a wide
+   receptive field, so to avoid overly downsampling, dilated convolutions
+   replace the main convolutions inside the bottlenecks. They did this for the
+   stages that operate on the smallest resolutions. The best accuracy was
+   obtained when these convolutions were combined with other bottleneck modules.
 
-3. **Dilated Convolutions**: It is very important for the model to have a wide receptive field, so to avoid overly downsampling, dilated convolutions replace the main convolutions inside the bottlenecks. They did this for the stages that operate on the smallest resolutions. The best accuracy was obtained when these convolutions were combined with other bottleneck modules.
-
-4. **Regularization**: 
-
+4. **Regularization**:
 
 ### UNet
-UNet was developed specifically for biological image segmentation. Now, U-Net's architecture is distinctive with distinct dual pathways: the contracting and expansive paths. The contracting path, comprising encoder layers, captures context and diminishes input spatial resolution. Conversely, the expansive path, housing decoder layers, deciphers encoded data using skip connections from the contracting path to produce a segmentation map.
 
-In the contracting path, relevant features are discerned from the input image. Encoder layers execute convolutions, reducing spatial resolution while deepening feature maps to abstract representations. This process mirrors feedforward layers in conventional CNNs. Conversely, the expansive path decodes encoded data, retaining input spatial resolution. Decoder layers upsample feature maps and perform convolutions, aided by skip connections to restore spatial information lost during contraction, facilitating more precise feature localization.
+UNet was developed specifically for biological image segmentation. Now, U-Net's
+architecture is distinctive with distinct dual pathways: the contracting and
+expansive paths. The contracting path, comprising encoder layers, captures
+context and diminishes input spatial resolution. Conversely, the expansive path,
+housing decoder layers, deciphers encoded data using skip connections from the
+contracting path to produce a segmentation map.
+
+In the contracting path, relevant features are discerned from the input image.
+Encoder layers execute convolutions, reducing spatial resolution while deepening
+feature maps to abstract representations. This process mirrors feedforward
+layers in conventional CNNs. Conversely, the expansive path decodes encoded
+data, retaining input spatial resolution. Decoder layers upsample feature maps
+and perform convolutions, aided by skip connections to restore spatial
+information lost during contraction, facilitating more precise feature
+localization.
 
 Distinct features of UNet:
+
 1. 3 x 3 convolutions -> 5 x 5 convolutions: consider more info. in each step
 2. 0 padding the input: ensure size of output feature maps = size of input
 3. Input size of 512 x 512
-4. 32 filters in first layer of encoder -> produces 32 feature maps: fine-grained details in image captured from beginning
-5. Doubled the feature maps after each max pooling layer, which halves dimensions of the map itself, clamping at 256 feature maps (each feature map has dimensions    of 64 x 64 here): focus on most prominent/distinct features and capture more abstract representation
-   Normalization of the scale of data to prevent large weights: prevents overfitting + faster convergence
-
+4. 32 filters in first layer of encoder -> produces 32 feature maps:
+   fine-grained details in image captured from beginning
+5. Doubled the feature maps after each max pooling layer, which halves
+   dimensions of the map itself, clamping at 256 feature maps (each feature map
+   has dimensions of 64 x 64 here): focus on most prominent/distinct features
+   and capture more abstract representation Normalization of the scale of data
+   to prevent large weights: prevents overfitting + faster convergence
 
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})
 {: style="width: 900px; max-width: 100%;"}
-*Fig 1. UNET Architecture* [1].
+*Fig 2. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
 ### Conclusion
 
 ## References
 
-
 [1] Zhang, Jeremy. "UNet -- Line by Line Explanation"
 _https://towardsdatascience.com/unet-line-by-line-explanation-9b191c76baf5/_.
 2019.
 
-[2] Paszke A; Chaurasia A; Kim S; Culurciello E. "ENet: A Deep Neural Network Architecture for
-Real-Time Semantic Segmentation." arXiv 2016, arXiv:1606.02147.
+[2] Paszke A; Chaurasia A; Kim S; Culurciello E. "ENet: A Deep Neural Network
+Architecture for Real-Time Semantic Segmentation." _arXiv_ 2016,
+arXiv:1606.02147.
 
 ---
 
 <!-- vim: set spell: -->
-

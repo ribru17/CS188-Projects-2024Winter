@@ -75,6 +75,9 @@ _Fig 1.ENet: An object Segmentation Method_ [2].
 
 
 ### UNet
+UNet was developed specifically for biological image segmentation. Now, U-Net's architecture is distinctive with distinct dual pathways: the contracting and expansive paths. The contracting path, comprising encoder layers, captures context and diminishes input spatial resolution. Conversely, the expansive path, housing decoder layers, deciphers encoded data using skip connections from the contracting path to produce a segmentation map.
+
+In the contracting path, relevant features are discerned from the input image. Encoder layers execute convolutions, reducing spatial resolution while deepening feature maps to abstract representations. This process mirrors feedforward layers in conventional CNNs. Conversely, the expansive path decodes encoded data, retaining input spatial resolution. Decoder layers upsample feature maps and perform convolutions, aided by skip connections to restore spatial information lost during contraction, facilitating more precise feature localization.
 
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})

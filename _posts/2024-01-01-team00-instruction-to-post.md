@@ -43,15 +43,15 @@ methods in emerging economies where medical infrastructure is substandard.
 
 ### ENet
 
-ENet is a fast and compact Encoder-Decoder network. The vanilla ENet assumes an
-input size of $$512 \times 512$$. The initial ENet block has a convolution
-operation ($$3 \times 3$$, stride 2), max pooling, then a concatenation. The
-convolution has 13 filters, which produces 16 feature maps after concatenation.
-Then comes the bottleneck module. Here, convolution is either regular, dilated
-or full with $$3 \times 3$$ filters, or a $$5\times5$$ convolution into
-asymmetric ones. Then using a skip connection, merge back with element-wise
-addition. There is also Batch Normalization and PReLU between all convolutions.
-The below Figure 1 highlights the overall model architecture.
+ENet is a fast and compact Encoder-Decoder network. The vanilla ENet model
+assumes an input size of $$512 \times 512$$. The initial ENet block has a
+convolution operation ($$3 \times 3$$, stride 2), max pooling, then a
+concatenation. The convolution has 13 filters, which produces 16 feature maps
+after concatenation. Then comes the bottleneck module. Here, convolution is
+either regular, dilated or full with $$3 \times 3$$ filters, or a $$5\times5$$
+convolution into asymmetric ones. Then using a skip connection, merge back with
+element-wise addition. There is also Batch Normalization and PReLU between all
+convolutions. The below Figure 1 highlights the overall model architecture.
 
 <!-- deno-fmt-ignore-start -->
 ![ENet]({{ '/assets/images/20/ENetArchitecture.png' | relative_url }})
@@ -97,6 +97,18 @@ _Fig 1. ENet: An object Segmentation Method_ [2].
    paper, spacial dropout showed the best results in order to prevent
    overfitting of the pixel-wise datasets, which tend to be quite small [2].
 
+ENet's main advantage is its speed. It can achieve surprisingly high accuracy
+while using computational resources very sparingly and working very quickly.
+This is why it was initially developed for real-time applications, such as self
+driving cars. It was later adapted to other uses, such as medical image
+segmentation, which is of use to us when detecting prostate cancer.
+
+<!-- deno-fmt-ignore-start -->
+![Self driving car]({{ '/assets/images/20/car.png' | relative_url }})
+{: style="width: 900px; max-width: 100%;"}
+*Fig 2. A self-driving car that could perhaps be making use of ENet.*
+<!-- deno-fmt-ignore-end -->
+
 ### UNet
 
 UNet was developed specifically for biological image segmentation. Now, UNet's
@@ -132,7 +144,7 @@ Distinct features of UNet:
 <!-- deno-fmt-ignore-start -->
 ![UNet Architecture]({{ '/assets/images/20/unet_arch.png' | relative_url }})
 {: style="width: 900px; max-width: 100%;"}
-*Fig 2. UNET Architecture* [1].
+*Fig 3. UNET Architecture* [1].
 <!-- deno-fmt-ignore-end -->
 
 ### Comparison
@@ -168,13 +180,13 @@ computational demands.
 <!-- deno-fmt-ignore-start -->
 ![Segmentation Comparison]({{ '/assets/images/20/segmentation.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
-_Fig 3. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
+_Fig 4. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
 <!-- deno-fmt-ignore-end -->
 
 <!-- deno-fmt-ignore-start -->
 ![Deep Learning Model Comparison]({{ '/assets/images/20/detailed_comparison.png' | relative_url }})
 {: style="width: 800px; max-width: 100%; display: block;"}
-_Fig 4. A more detailed model comparison_. [4]
+_Fig 5. A more detailed model comparison_. [4]
 <!-- deno-fmt-ignore-end -->
 
 In summary, while ENet offers superior efficiency and speed, UNet's architecture

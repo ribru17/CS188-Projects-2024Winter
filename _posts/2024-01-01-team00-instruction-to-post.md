@@ -171,6 +171,12 @@ computational demands.
 _Fig 3. Segmentation comparison: yellow is manual, red is ENet, green is UNet_.
 <!-- deno-fmt-ignore-end -->
 
+<!-- deno-fmt-ignore-start -->
+![Deep Learning Model Comparison]({{ '/assets/images/20/detailed_comparison.png' | relative_url }})
+{: style="width: 800px; max-width: 100%; display: block;"}
+_Fig 4. A more detailed model comparison_. [4]
+<!-- deno-fmt-ignore-end -->
+
 In summary, while ENet offers superior efficiency and speed, UNet's architecture
 is better suited for complex segmentation tasks like prostate image
 segmentation, where achieving high accuracy and detail preservation is

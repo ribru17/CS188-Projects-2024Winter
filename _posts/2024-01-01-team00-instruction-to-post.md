@@ -60,7 +60,7 @@ The below Figure 1 highlights the overall model architecture.
 
 <!-- deno-fmt-ignore-start -->
 ![ENet]({{ '/assets/images/20/ENetArchitecture.png' | relative_url }})
-{: style="width: 400px; max-width: 100%; display: block;"}
+{: style="width: 800px; max-width: 100%; display: flex;"}
 _Fig 1.ENet: An object Segmentation Method_ [2].
 <!-- deno-fmt-ignore-end -->
 
